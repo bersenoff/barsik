@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "ts:w": "tsc -w",
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "@types/node": "^11.13.0",
+    "dotenv": "^7.0.0",
+    "node-vk-bot-api": "^2.4.10"
+  }
+}
