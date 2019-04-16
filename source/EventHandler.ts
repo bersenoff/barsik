@@ -62,7 +62,7 @@ export default class EventHandler extends Main {
                             this.functions.sendCompliment();
                             x++;
                           }
-                        }, 300000);
+                        }, 180000);
 
                         const timer2 = setInterval(() => {
                           if (!timer1_run) {
