@@ -4,8 +4,14 @@
     "dev": "nodemon"
   },
   "dependencies": {
-    "@types/node": "^11.13.0",
+    "@types/bluebird": "^3.5.26",
+    "@types/node": "^11.13.4",
+    "@types/sequelize": "^4.27.47",
+    "@types/validator": "^10.11.0",
     "dotenv": "^7.0.0",
-    "node-vk-bot-api": "^2.4.10"
+    "moment": "^2.24.0",
+    "mysql2": "^1.6.5",
+    "node-vk-bot-api": "^2.4.10",
+    "sequelize": "^5.5.0"
   }
 }

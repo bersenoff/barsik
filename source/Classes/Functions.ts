@@ -15,6 +15,35 @@ export default class Functions extends Main {
   }
 
   /**
+   * @description Отправка случайного комплимента
+   */
+  public async sendCompliment() {
+    const data: any = (await this.db.query(`
+      SELECT * FROM \`compliments\`
+      WHERE sended = 0
+      ORDER BY RAND()
+      LIMIT 1
+    `))[0];
+
+    if (!data.length) {
+      await this.db.query(`
+        UPDATE \`compliments\`
+        SET sended = 0
+      `);
+    } else {
+      const compliment: any = data[0];
+
+      this.sendMessage(Number(process.env.VK_ID), compliment.message);
+
+      await this.db.query(`
+        UPDATE \`compliments\`
+        SET sended = 1
+        WHERE id = ${compliment.id}
+      `);
+    }
+  }
+
+  /**
    * @description Отправка сообщения с рандомной задержкой
    */
   public sendMessage(user_id: number, text: string) {
