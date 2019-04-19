@@ -31,8 +31,7 @@ class Barsik {
           fields: ["online"]
         }, (data: any) => {
           if (data[0].online) {
-            this.functions.sendMessage(Number(process.env.VK_ID), "Доброе утро! Я вижу ты уже проснулась 😌 Хозяин спит, поэтому запрограммировал меня пожелать тебе отличного дня 😇");
-            this.functions.sendMessage(Number(process.env.VK_ID), "Мяу 😌");
+            this.functions.sendMessage(Number(process.env.VK_ID), "Доброе утро 😇");
             this.functions.sendCompliment();
             this.sended = true;
           }
