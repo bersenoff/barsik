@@ -24,7 +24,7 @@ class Barsik {
       console.log("Барсик запущен!");
     });
 
-    new CronJob("0 * * * * *", () => {
+    new CronJob("0 * 6-12 * * *", () => {
       if (!this.sended) {
         this.bot.execute("users.get", {
           user_ids: [Number(process.env.VK_ID)],
