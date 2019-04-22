@@ -40,6 +40,21 @@ export default class EventHandler extends Main {
             // Нужно ответить на вопрос
             const answers = require("../include/answers.json");
             answer = answers[RandomInt(1, Object.keys(answers).length)];
+          } else if (ctx.message.text.indexOf("Хорошее 😌") !== -1) {
+            this.functions.sendMessage(Number(process.env.VK_ID), "Мяу, супер, хорошо спалось? 😉");
+            setTimeout(() => {
+              this.functions.sendCompliment();
+            }, 10000);
+          } else if (ctx.message.text.indexOf("Нормальное 😊") !== -1) {
+            this.functions.sendMessage(Number(process.env.VK_ID), "Мяу, хорошо спалось? 😉");
+            setTimeout(() => {
+              this.functions.sendCompliment();
+            }, 10000);
+          } else if (ctx.message.text.indexOf("Плохое 😐") !== -1) {
+            this.functions.sendMessage(Number(process.env.VK_ID), "Мяу, не грусти, ты самая необыкновенная 😉");
+            setTimeout(() => {
+              this.functions.sendCompliment();
+            }, 10000);
           } else {
             // Рандомная фраза
             const phrases = require("../include/phrases.json");  

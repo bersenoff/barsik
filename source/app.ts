@@ -1,5 +1,6 @@
 require("dotenv").config();
 const VkBot = require("node-vk-bot-api");
+const Markup = require("node-vk-bot-api/lib/markup");
 import EventHandler from "./EventHandler";
 import { Functions } from "./Classes";
 import { CronJob } from "cron";
@@ -31,8 +32,20 @@ class Barsik {
           fields: ["online"]
         }, (data: any) => {
           if (data[0].online) {
-            this.functions.sendMessage(Number(process.env.VK_ID), "Доброе утро 😇");
-            this.functions.sendCompliment();
+            setTimeout(() => {
+              this.bot.sendMessage(Number(process.env.VK_ID), "Доброе утро, красотка 😇 Как твое настроение?", null, Markup.keyboard([
+                [
+                  Markup.button("Хорошее 😌", "positive")
+                ],
+                [
+                  Markup.button("Нормальное 😊", "primary")
+                ],
+                [
+                  Markup.button("Плохое 😐", "negative")
+                ]
+              ]).oneTime());
+            }, 15000);
+
             this.sended = true;
           }
         });
