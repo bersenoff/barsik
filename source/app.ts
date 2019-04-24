@@ -32,18 +32,9 @@ class Barsik {
           fields: ["online"]
         }, (data: any) => {
           if (data[0].online) {
-            setTimeout(() => {
-              this.bot.sendMessage(Number(process.env.VK_ID), "Доброе утро, красотка 😇 Как твое настроение?", null, Markup.keyboard([
-                [
-                  Markup.button("Хорошее 😌", "positive")
-                ],
-                [
-                  Markup.button("Нормальное 😊", "primary")
-                ],
-                [
-                  Markup.button("Плохое 😐", "negative")
-                ]
-              ]).oneTime());
+            setTimeout(async () => {
+              await this.bot.sendMessage(Number(process.env.VK_ID), "Доброе утро 😇");
+              await this.functions.sendCompliment();
             }, 15000);
 
             this.sended = true;
