@@ -25,27 +25,27 @@ class Barsik {
       console.log("Барсик запущен!");
     });
 
-    new CronJob("0 * 6-12 * * *", () => {
-      if (!this.sended) {
-        this.bot.execute("users.get", {
-          user_ids: [Number(process.env.VK_ID)],
-          fields: ["online"]
-        }, (data: any) => {
-          if (data[0].online) {
-            setTimeout(async () => {
-              await this.bot.sendMessage(Number(process.env.VK_ID), "Доброе утро 😇");
-              await this.functions.sendCompliment();
-            }, 15000);
+    // new CronJob("0 * 6-12 * * *", () => {
+    //   if (!this.sended) {
+    //     this.bot.execute("users.get", {
+    //       user_ids: [Number(process.env.VK_ID)],
+    //       fields: ["online"]
+    //     }, (data: any) => {
+    //       if (data[0].online) {
+    //         setTimeout(async () => {
+    //           await this.bot.sendMessage(Number(process.env.VK_ID), "Доброе утро 😇");
+    //           await this.functions.sendCompliment();
+    //         }, 15000);
 
-            this.sended = true;
-          }
-        });
-      }
-    }, null, true, "Asia/Irkutsk");
+    //         this.sended = true;
+    //       }
+    //     });
+    //   }
+    // }, null, true, "Asia/Irkutsk");
 
-    new CronJob("0 0 0 * * *", () => {
-      this.sended = false;
-    }, null, true, "Asia/Irkutsk");
+    // new CronJob("0 0 0 * * *", () => {
+    //   this.sended = false;
+    // }, null, true, "Asia/Irkutsk");
   }
 }
 
